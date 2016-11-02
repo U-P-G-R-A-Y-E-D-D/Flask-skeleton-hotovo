@@ -1,0 +1,23 @@
+{% from "macros/fields.tmpl" import render_input_field, render_submit %}
+{% extends "shared/layout.tmpl" %}
+
+{% block title %}LIST{% endblock %}
+
+{% block content %}
+  <h3>insert</h3>
+  <div class="form-group">Type in the email address you used when signing up and we'll send you a link to reset your password.</div>
+ <table>
+    {% for radek in data %}
+        <tr><td>{{ radek.DruhPapiru }}</td>
+        <td>{{ radek.Cena }}</td>
+        <td>{{ radek.id }}</td>
+        <td><a href="smazat_papir/{{ radek.id }}">Smaz</a></td>
+        <td>  <form method="POST" id="{{ radek.id }}">
+       {{ render_submit() }}
+  </form></td>
+        </tr>
+
+    {% endfor %}
+    </table>
+
+{% endblock %}
